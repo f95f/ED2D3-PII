@@ -13,6 +13,20 @@ struct NO{
     int cor;
 };
 
+void libera_NO(struct NO *no){
+
+    if(no == NULL){
+        return;
+    }
+
+    libera_NO(no -> esq);
+    libera_NO(no -> dir);
+
+    free(no);
+
+    no = NULL;
+}
+
 int cor(struct NO *H){
 
     if(H == NULL){
@@ -56,20 +70,6 @@ void liberar_arvoreLLRB(arvoreLLRB *raiz){
 
     libera_NO(*raiz);
     free(raiz);
-}
-
-void libera_NO(struct NO *no){
-
-    if(no == NULL){
-        return;
-    }
-
-    libera_NO(no -> esq);
-    libera_NO(no -> dir);
-
-    free(no);
-
-    no = NULL;
 }
 
 int vazia_arvoreLLRB(arvoreLLRB *raiz){
