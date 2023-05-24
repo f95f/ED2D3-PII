@@ -12,7 +12,8 @@ void main(){
     setlocale(LC_ALL, "");
     gerarHeader();
 
-    printf("\n\n    > Importando dados...\n\n");
+    //printf("\n\n    > Preparando dados...\n\n");
+    //ordenar();
 
     //Objeto *listaOriginal = importar();
     //Objeto *listaOrdenada = copiarLista(listaOriginal);
@@ -34,22 +35,37 @@ void main(){
         printf("    > Escolha uma opção: ");
         scanf("%d", &resposta);
 
+        if(resposta == 2 || resposta == 3){
+
+            listaEscolhida = subMenu();
+        }
+
+        switch(resposta){
+        case 1:
+
+            // mostrar listas
+
+        break;
+        case 2:
+
+
+
+        break;
+        }
+        /*
         if(resposta == 1){
             // mostrar listas
         }
         else if(resposta == 2 || resposta == 3){
 
-            listaEscolhida = subMenu();
-
-            if(!listaEscolhida){
-                arvoreEscolhida = resposta -1;
-                executar(arvoreEscolhida, listaEscolhida);
-            }
+            arvoreEscolhida = resposta;
+            executar(arvoreEscolhida);
         }
+*/
     }
-    while(!resposta);
+    while(resposta);
 
-    system("pause");
+    //system("pause");
 
 }
 

@@ -32,4 +32,4 @@ void amostrar(int *lista, char *descr);
 // Monta a lista de números aleatórios de acordo com a quantidade informada,
 // executa a ordenação de acordo com o algoritmo solicitado e executa a medição de tempo.
 // Ao final, exibe os resultados das medições.
-int executar(int arvore, int lista);
+int executar(int metodo);

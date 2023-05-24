@@ -5,12 +5,12 @@
 #include "utilidades.h"
 
 struct obj{
-
+    int codigo;
     char *nome;
     int idade;
-    char *email;
-    char *telefone;
-    char *endereco;
+    char *empresa;
+    char *departamento;
+    float salario;
 
 };
 
@@ -88,55 +88,45 @@ void amostrar(int *lista, char *descr){
     printf("\n\n");
 }
 
-int executar(int arvore, int lista){
+int executar(int metodo){
 
     struct timeval antes, depois;
     double tempo;
+    double tempo_listaOrganizada, tempo_listaOriginal;
 
-    switch(arvore){
-        case 1:
+    switch(metodo){
+        case 2:
 
-            if(arvore == 1){
+            gettimeofday(&antes, NULL);
 
-                gettimeofday(&antes, NULL);
 
                 //avl(listaOriginal);
 
-                gettimeofday(&depois, NULL);
+            gettimeofday(&depois, NULL);
+            tempo_listaOriginal = medirIntervalo(antes, depois);
 
-            }
-            else{
+            gettimeofday(&antes, NULL);
 
-                gettimeofday(&antes, NULL);
+            //avl(listaOrdenada);
 
-                //avl(listaOrdenada);
+            gettimeofday(&depois, NULL);
 
-                gettimeofday(&depois, NULL);
-
-            }
         break;
-        case 2:
+        case 3:
 
-            if(arvore == 1){
+            gettimeofday(&antes, NULL);
 
-                gettimeofday(&antes, NULL);
+            //rn(listaOriginal);
 
-                //rn(listaOriginal);
+            gettimeofday(&depois, NULL);
+            tempo_listaOrganizada = medirIntervalo(antes, depois);
 
-                gettimeofday(&depois, NULL);
+            gettimeofday(&antes, NULL);
 
-            }
-            else{
+            //rn(listaOrdenada);
 
-                gettimeofday(&antes, NULL);
+            gettimeofday(&depois, NULL);
 
-                //rn(listaOrdenada);
-
-                gettimeofday(&depois, NULL);
-
-            }
         break;
-
     }
-
 }
