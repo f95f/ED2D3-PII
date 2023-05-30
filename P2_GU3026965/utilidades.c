@@ -33,39 +33,48 @@ void gerarHeader(){
 
 }
 
-int checkResposta(int resposta, int valorMin, int valorMax){
+Pessoa *ler(char *arquivo){
 
-    if(resposta >= valorMin && resposta <= valorMax){
-        return 1;
-    }
-    return 0;
+    Pessoa *lista = (Pessoa*) calloc(sizeof(Pessoa), TAMANHO);
+    FILE *arquivoOriginal = fopen(arquivo, "rb");
 
-}
+    if(lista == NULL || arquivoOriginal == NULL){ return NULL; }
 
-int *gerarLista(int tamanho){
+    Pessoa teste;
+    int tamanho_linha = sizeof(Pessoa) + 5;
+    char *linha = (char *) calloc(tamanho_linha, TAMANHO);
 
-    srand((unsigned) time(NULL));
+    //char *linha = "54651;Bryar L. Lott;47;Yahoo;Payroll;2255.08";
+    fgets(linha, tamanho_linha, arquivoOriginal);
 
-    int *lista = (int*) calloc(tamanho, sizeof(int));
+        teste.codigo = atoi(strtok(linha, ";"));
+        char *name = strtok(NULL, ";");
+       // printf("======= %s =======", name);
+       teste.nome = (char *) calloc(sizeof(char), 100);
+        strcpy(teste.nome, name);//strtok(NULL, ";"));
+        /*teste.idade = atoi(strtok(linha, ";"));
+        strcpy(teste.empresa, strtok(NULL, ";"));
+        strcpy(teste.departamento, strtok(NULL, ";"));
+        teste.salario = atof(strtok(linha, ";"));
+*/
+        //printf("%s", linha);
 
-    for(int i = 0; i < tamanho; i++){
-        lista[i] = rand();
-    }
+    printf("\n\n ------------------------------------------");
+    printf("\n- %d \n", teste.nome);
+    //printf("- %d \n- %s \n- %d \n- %s \n- %s \n- %f \n", teste.codigo, teste.nome, teste.idade, teste.empresa, teste.departamento, teste.salario);
 
+    printf("\n\n ------------------------------------------");
+
+    system("pause");
+
+    fclose(arquivoOriginal);
     return lista;
+
 }
 
-int *copiarLista(int *lista, int tamanho){
+void ordenar(Pessoa *lista, char *arquivo){
 
-    int *listaCopiada = (int*) calloc(tamanho, sizeof(int));
 
-    for(int i = 0; i < tamanho; i++){
-
-        listaCopiada[i] = lista[i];
-
-    }
-
-    return listaCopiada;
 }
 
 double medirIntervalo(struct timeval Tempo_inicial, struct timeval Tempo_final){

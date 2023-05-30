@@ -12,15 +12,18 @@ void main(){
     setlocale(LC_ALL, "");
     gerarHeader();
 
-    //printf("\n\n    > Preparando dados...\n\n");
-    //ordenar();
+    printf("\n\n    > Preparando dados...\n\n");
+    Pessoa *listaOriginal = ler("massaDados.csv");
+    ordenar(listaOriginal, "massaDados - Ordenada.csv");
+    free(listaOriginal);
 
     //Objeto *listaOriginal = importar();
     //Objeto *listaOrdenada = copiarLista(listaOriginal);
     //ordenar(listaOrdenada);
 
     int resposta = -1;
-    int arvoreEscolhida, listaEscolhida;
+    int arvoreEscolhida = -1;
+    int listaEscolhida = -1;
 
     do{
         system("cls");
@@ -46,22 +49,33 @@ void main(){
             // mostrar listas
 
         break;
-        case 2:
+        case 2: // Usar árvore AVL
 
+            if(listaEscolhida == 1){
 
+                // usar lista ordenada
+
+            }
+            else if(listaEscolhida == 2){
+
+                // usar lista desordenada
+            }
+
+        break;
+        case 3: //Usar árvore RN
+
+            if(listaEscolhida == 1){
+
+                // usar lista ordenada
+
+            }
+            else if(listaEscolhida == 2){
+
+                // usar lista desordenada
+            }
 
         break;
         }
-        /*
-        if(resposta == 1){
-            // mostrar listas
-        }
-        else if(resposta == 2 || resposta == 3){
-
-            arvoreEscolhida = resposta;
-            executar(arvoreEscolhida);
-        }
-*/
     }
     while(resposta);
 
@@ -84,8 +98,10 @@ int subMenu(){
 
         printf("    > Escolha uma opção: ");
         scanf("%d", &op);
+
+        if(op == 1 || op == 2){ break; }
     }
-    while(!op);
+    while(op);
 
     return op;
 }
