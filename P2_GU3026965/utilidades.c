@@ -40,17 +40,17 @@ Pessoa *ler(char *arquivo){
         lista[index].codigo = atoi(strtok(registro, ";"));
 
         char *nome =  strtok(NULL, ";");
-        //lista[index].nome = (char *) calloc(sizeof(char), 50);
+        lista[index].nome = (char *) calloc(sizeof(char), 50);
         strcpy(lista[index].nome, nome);
 
         lista[index].idade = atoi(strtok(NULL, ";"));
 
         char *empresa =  strtok(NULL, ";");
-        //lista[index].empresa = (char *) calloc(sizeof(char), 50);
+        lista[index].empresa = (char *) calloc(sizeof(char), 50);
         strcpy(lista[index].empresa, empresa);
 
         char *depto =  strtok(NULL, ";");
-        //lista[index].departamento = (char *) calloc(sizeof(char), 50);
+        lista[index].departamento = (char *) calloc(sizeof(char), 50);
         strcpy(lista[index].departamento, depto);
 
         lista[index].salario = atof(strtok(NULL, ";"));
@@ -89,8 +89,22 @@ void ordenar(Pessoa *lista){
     }
 
     gravar(vetorOrdenado, "massaDados - Ordenada.csv");
-
+    free(codigos);
     free(vetorOrdenado);
+
+}
+
+void limpar(Pessoa *lista){
+
+    for(int i = 0; i < TAMANHO; i++){
+
+        free(lista[i].nome);
+        free(lista[i].empresa);
+        free(lista[i].departamento);
+
+    }
+
+    free(lista);
 }
 
 int gravar(Pessoa *lista, char *arquivo){

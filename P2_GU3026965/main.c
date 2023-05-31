@@ -17,8 +17,9 @@ void main(){
     Pessoa *listaOriginal = ler("massaDados.csv");
 
     ordenar(listaOriginal);
-    free(listaOriginal);
+    //free(listaOriginal);
 
+    limpar(listaOriginal);
     int resposta = -1;
     int arvoreEscolhida = -1;
     int listaEscolhida = -1;
@@ -114,8 +115,8 @@ void mostrarListas(){
     amostrar(listaOriginal, "Primeiros registros no arquivo original");
     amostrar(listaOrdenada, "Primeiros registros no arquivo ordenado");
 
-    free(listaOrdenada);
-    free(listaOriginal);
+    limpar(listaOrdenada);
+    limpar(listaOriginal);
 
     printf("\n    - Pressione enter para voltar.\n");
     getchar();

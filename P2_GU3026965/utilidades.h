@@ -10,10 +10,10 @@
 // Estrutura utilizada para armazenar cada instância.
 typedef struct obj{
     int codigo;
-    char nome[50];
+    char *nome;
     int idade;
-    char empresa[50];
-    char departamento[50];
+    char *empresa;
+    char *departamento;
     float salario;
 
 } Pessoa;
@@ -32,6 +32,8 @@ Pessoa *ler(char *arqauivo);
 // A organiza em ordem crescente e a grava em um arquivo cujo nome
 // é especificado por parâmetro.
 void ordenar(Pessoa *lista);
+
+void limpar(Pessoa *lista);
 
 //a
 int gravar(Pessoa *lista, char *arquivo);
