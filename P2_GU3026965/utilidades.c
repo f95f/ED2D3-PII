@@ -56,15 +56,15 @@ Pessoa *ler(char *arquivo){
         lista[index].salario = atof(strtok(NULL, ";"));
 
         index++;
-
     }
 
+    free(registro);
     fclose(arquivoOriginal);
     return lista;
 
 }
 
-void ordenar(Pessoa *lista, char *arquivo){
+void ordenar(Pessoa *lista){
 
     Pessoa *vetorOrdenado = (Pessoa *) calloc(sizeof(Pessoa), TAMANHO);
     int *codigos = (int *) calloc(sizeof(int), TAMANHO);
@@ -87,11 +87,34 @@ void ordenar(Pessoa *lista, char *arquivo){
         vetorOrdenado[i] = lista[indice];
     }
 
-    system("pause");
+    gravar(vetorOrdenado, "massaDados - Ordenada.csv");
+    //limpar(vetorORdenado);
+    free(vetorOrdenado);    // limpar campos char* antes?
 
-    //for(int i = 0; i < 100; i++){ printf(" aaa %d - %s aaa\n", vetorOrdenado[i].codigo, vetorOrdenado[i].nome); }
+}
 
-    system("pause");
+int gravar(Pessoa *lista, char *arquivo){
+
+    FILE *arquivoOrdenado = fopen(arquivo, "wb");
+    if(arquivoOrdenado == NULL){ return NULL; }
+    int resposta = 0;
+
+    for(int i = 0; i < TAMANHO -1; i++){
+
+        resposta = fprintf(
+            arquivoOrdenado,
+            "%d;%s;%d;%s;%s;%.2f\n",
+            lista[i].codigo,
+            lista[i].nome,
+            lista[i].idade,
+            lista[i].empresa,
+            lista[i].departamento,
+            lista[i].salario
+        );
+        if(resposta <= 0){ printf("\n\n Erro \n\n"); system("pause");}
+
+    }
+    return 0;
 }
 
 double medirIntervalo(struct timeval Tempo_inicial, struct timeval Tempo_final){
@@ -101,17 +124,28 @@ double medirIntervalo(struct timeval Tempo_inicial, struct timeval Tempo_final){
 
 }
 
-void amostrar(int *lista, char *descr){
+void amostrar(Pessoa *lista, char *descr){
 
-    printf("    > Amostra: %s\n\n", descr);
+    printf("\n    > Amostra: %s\n", descr);
 
-    for(int i = 0; i < 50; i++){
+    linha('_', 86);
+    printf(" |__Cód__|_________Nome_________|_Idade_|__Empresa___|_____Departamento_____|_Salário_|\n");
 
-        printf(" %5d |", lista[i] );
-        if(i != 0 && !((i + 1) % 10)){printf("\n");}
+    for(int i = 0; i < 10; i++){
+
+        printf(
+            " | %5d | %20s | %5d | %10s | %20s | %5.2f |\n",
+            lista[i].codigo,
+            lista[i].nome,
+            lista[i].idade,
+            lista[i].empresa,
+            lista[i].departamento,
+            lista[i].salario
+        );
 
     }
-    printf("\n\n");
+    printf("\n");
+    linha('=', 86);
 }
 
 int executar(int metodo){

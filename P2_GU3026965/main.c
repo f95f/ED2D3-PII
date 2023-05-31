@@ -6,6 +6,7 @@
 #include "utilidades.h"
 
 int subMenu();
+void mostrarListas();
 
 void main(){
 
@@ -15,12 +16,9 @@ void main(){
     printf("\n\n    > Preparando dados...\n\n");
     Pessoa *listaOriginal = ler("massaDados.csv");
 
-    ordenar(listaOriginal, "massaDados - Ordenada.csv");
+    ordenar(listaOriginal);
+    // limpar cada campo do tipo char* da lista? limpar(listaOriginal);
     free(listaOriginal);
-
-    //Objeto *listaOriginal = importar();
-    //Objeto *listaOrdenada = copiarLista(listaOriginal);
-    //ordenar(listaOrdenada);
 
     int resposta = -1;
     int arvoreEscolhida = -1;
@@ -47,7 +45,7 @@ void main(){
         switch(resposta){
         case 1:
 
-            // mostrar listas
+            mostrarListas();
 
         break;
         case 2: // Usar árvore AVL
@@ -106,3 +104,35 @@ int subMenu(){
 
     return op;
 }
+
+void mostrarListas(){
+
+    system("cls");
+    gerarHeader();
+    printf("\n");
+
+    Pessoa *listaOriginal = ler("massaDados.csv");
+    Pessoa *listaOrdenada = ler("massaDados - Ordenada.csv");
+
+    amostrar(listaOriginal, "Primeiros registros no arquivo original");
+    amostrar(listaOrdenada, "Primeiros registros no arquivo ordenado");
+
+//    limpar(listaOrdenada);
+ //   limpar(listaOriginal);
+
+    free(listaOrdenada);
+    free(listaOriginal);
+
+    printf("\n    - Pressione enter para voltar.\n");
+    getchar();
+    getchar();
+}
+
+
+
+
+
+
+
+
+

@@ -31,12 +31,15 @@ Pessoa *ler(char *arqauivo);
 // Recebe por parâmetro uma lista de estruturas do tipo Pessoa
 // A organiza em ordem crescente e a grava em um arquivo cujo nome
 // é especificado por parâmetro.
-void ordenar(Pessoa *lista, char *arquivo);
+void ordenar(Pessoa *lista);
+
+//a
+int gravar(Pessoa *lista, char *arquivo);
 
 // Obtem uma amostra de 50 números de uma lista e a exibe na tela.
 // Esta função foi implementada com a intenção de verificar de forma simples a lista antes e depois
 // de ordenada. Recebe para fins de identificação uma descrição por parâmetro e a exibe na tela.
-void amostrar(int *lista, char *descr);
+void amostrar(Pessoa *lista, char *descr);
 
 // Monta a lista de números aleatórios de acordo com a quantidade informada,
 // executa a ordenação de acordo com o algoritmo solicitado e executa a medição de tempo.
