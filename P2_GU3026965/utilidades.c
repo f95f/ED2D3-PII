@@ -60,6 +60,7 @@ Pessoa *ler(char *arquivo){
 
     free(registro);
     fclose(arquivoOriginal);
+
     return lista;
 
 }
@@ -88,9 +89,8 @@ void ordenar(Pessoa *lista){
     }
 
     gravar(vetorOrdenado, "massaDados - Ordenada.csv");
-    //limpar(vetorORdenado);
-    free(vetorOrdenado);    // limpar campos char* antes?
 
+    free(vetorOrdenado);
 }
 
 int gravar(Pessoa *lista, char *arquivo){
@@ -99,7 +99,7 @@ int gravar(Pessoa *lista, char *arquivo){
     if(arquivoOrdenado == NULL){ return NULL; }
     int resposta = 0;
 
-    for(int i = 0; i < TAMANHO -1; i++){
+    for(int i = 0; i < TAMANHO; i++){
 
         resposta = fprintf(
             arquivoOrdenado,

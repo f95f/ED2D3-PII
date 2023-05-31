@@ -17,7 +17,6 @@ void main(){
     Pessoa *listaOriginal = ler("massaDados.csv");
 
     ordenar(listaOriginal);
-    // limpar cada campo do tipo char* da lista? limpar(listaOriginal);
     free(listaOriginal);
 
     int resposta = -1;
@@ -116,9 +115,6 @@ void mostrarListas(){
 
     amostrar(listaOriginal, "Primeiros registros no arquivo original");
     amostrar(listaOrdenada, "Primeiros registros no arquivo ordenado");
-
-//    limpar(listaOrdenada);
- //   limpar(listaOriginal);
 
     free(listaOrdenada);
     free(listaOriginal);

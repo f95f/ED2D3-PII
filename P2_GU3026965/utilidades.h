@@ -5,7 +5,7 @@
     bem como a função principal de executar as medições e exibir os resultados.
 */
 
-#define TAMANHO 15000l
+#define TAMANHO 14999
 
 // Estrutura utilizada para armazenar cada instância.
 typedef struct obj{
