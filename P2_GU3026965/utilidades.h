@@ -5,10 +5,18 @@
     bem como a função principal de executar as medições e exibir os resultados.
 */
 
-#define TAMANHO 15000
+#define TAMANHO 15000l
 
 // Estrutura utilizada para armazenar cada instância.
-typedef struct obj Pessoa;
+typedef struct obj{
+    int codigo;
+    char *nome;
+    int idade;
+    char *empresa;
+    char *departamento;
+    float salario;
+
+} Pessoa;
 
 // Cria uma linha com o caractere e desejado.
 void linha(char formato, int tamanho);

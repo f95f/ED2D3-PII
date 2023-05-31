@@ -3,16 +3,7 @@
 #include <locale.h>
 #include <time.h>
 #include "utilidades.h"
-
-struct obj{
-    int codigo;
-    char *nome;
-    int idade;
-    char *empresa;
-    char *departamento;
-    float salario;
-
-};
+#include "radixSort.h"
 
 void linha(char formato, int tamanho){
 
@@ -40,32 +31,33 @@ Pessoa *ler(char *arquivo){
 
     if(lista == NULL || arquivoOriginal == NULL){ return NULL; }
 
-    Pessoa teste;
-    int tamanho_linha = sizeof(Pessoa) + 5;
-    char *linha = (char *) calloc(tamanho_linha, TAMANHO);
+    Pessoa pessoa;
+    char *registro = (char *) calloc(sizeof(char), 100);
+    int index = 0;
 
-    //char *linha = "54651;Bryar L. Lott;47;Yahoo;Payroll;2255.08";
-    fgets(linha, tamanho_linha, arquivoOriginal);
+    while(fgets(registro, 100, arquivoOriginal)){
 
-        teste.codigo = atoi(strtok(linha, ";"));
-        char *name = strtok(NULL, ";");
-       // printf("======= %s =======", name);
-       teste.nome = (char *) calloc(sizeof(char), 100);
-        strcpy(teste.nome, name);//strtok(NULL, ";"));
-        /*teste.idade = atoi(strtok(linha, ";"));
-        strcpy(teste.empresa, strtok(NULL, ";"));
-        strcpy(teste.departamento, strtok(NULL, ";"));
-        teste.salario = atof(strtok(linha, ";"));
-*/
-        //printf("%s", linha);
+        lista[index].codigo = atoi(strtok(registro, ";"));
 
-    printf("\n\n ------------------------------------------");
-    printf("\n- %d \n", teste.nome);
-    //printf("- %d \n- %s \n- %d \n- %s \n- %s \n- %f \n", teste.codigo, teste.nome, teste.idade, teste.empresa, teste.departamento, teste.salario);
+        char *nome =  strtok(NULL, ";");
+        lista[index].nome = (char *) calloc(sizeof(char), 50);
+        strcpy(lista[index].nome, nome);
 
-    printf("\n\n ------------------------------------------");
+        lista[index].idade = atoi(strtok(NULL, ";"));
 
-    system("pause");
+        char *empresa =  strtok(NULL, ";");
+        lista[index].empresa = (char *) calloc(sizeof(char), 50);
+        strcpy(lista[index].empresa, empresa);
+
+        char *depto =  strtok(NULL, ";");
+        lista[index].departamento = (char *) calloc(sizeof(char), 50);
+        strcpy(lista[index].departamento, depto);
+
+        lista[index].salario = atof(strtok(NULL, ";"));
+
+        index++;
+
+    }
 
     fclose(arquivoOriginal);
     return lista;
@@ -74,7 +66,32 @@ Pessoa *ler(char *arquivo){
 
 void ordenar(Pessoa *lista, char *arquivo){
 
+    Pessoa *vetorOrdenado = (Pessoa *) calloc(sizeof(Pessoa), TAMANHO);
+    int *codigos = (int *) calloc(sizeof(int), TAMANHO);
+    int indice = 0;
 
+    for(int i = 0; i < TAMANHO; i++){
+
+        codigos[i] = lista[i].codigo;
+
+    }
+
+    radixSort(codigos, TAMANHO -1);
+
+    for(int i = 0; i < TAMANHO; i++){
+
+        indice = 0;
+        while(lista[indice].codigo != codigos[i]){
+            indice++;
+        }
+        vetorOrdenado[i] = lista[indice];
+    }
+
+    system("pause");
+
+    //for(int i = 0; i < 100; i++){ printf(" aaa %d - %s aaa\n", vetorOrdenado[i].codigo, vetorOrdenado[i].nome); }
+
+    system("pause");
 }
 
 double medirIntervalo(struct timeval Tempo_inicial, struct timeval Tempo_final){
@@ -90,7 +107,7 @@ void amostrar(int *lista, char *descr){
 
     for(int i = 0; i < 50; i++){
 
-        printf(" %6d |", lista[i] );
+        printf(" %5d |", lista[i] );
         if(i != 0 && !((i + 1) % 10)){printf("\n");}
 
     }
@@ -139,3 +156,5 @@ int executar(int metodo){
         break;
     }
 }
+
+

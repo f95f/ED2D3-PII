@@ -14,6 +14,7 @@ void main(){
 
     printf("\n\n    > Preparando dados...\n\n");
     Pessoa *listaOriginal = ler("massaDados.csv");
+
     ordenar(listaOriginal, "massaDados - Ordenada.csv");
     free(listaOriginal);
 
