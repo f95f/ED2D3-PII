@@ -10,10 +10,10 @@
 // Estrutura utilizada para armazenar cada instância.
 typedef struct obj{
     int codigo;
-    char *nome;
+    char nome[50];
     int idade;
-    char *empresa;
-    char *departamento;
+    char empresa[50];
+    char departamento[50];
     float salario;
 
 } Pessoa;

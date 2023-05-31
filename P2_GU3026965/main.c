@@ -77,8 +77,6 @@ void main(){
     }
     while(resposta);
 
-    //system("pause");
-
 }
 
 int subMenu(){
