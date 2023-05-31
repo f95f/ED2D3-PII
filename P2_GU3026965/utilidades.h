@@ -5,6 +5,7 @@
     bem como a função principal de executar as medições e exibir os resultados.
 */
 
+// Tamanho comum à todas as listas.
 #define TAMANHO 14999
 
 // Estrutura utilizada para armazenar cada instância.
@@ -33,9 +34,12 @@ Pessoa *ler(char *arqauivo);
 // é especificado por parâmetro.
 void ordenar(Pessoa *lista);
 
+// Libera a memória alocada para campos com cadeias de caracteres
+// (nome, empresa e departamento) de cada elemento da lista recebida por parâmetro.
+// Em seguida, libera a memória alocada para a lista.
 void limpar(Pessoa *lista);
 
-//a
+// Salva a lista recebida em um arquivo, cujo nome é informado por parâmetro.
 int gravar(Pessoa *lista, char *arquivo);
 
 // Obtem uma amostra de 50 números de uma lista e a exibe na tela.

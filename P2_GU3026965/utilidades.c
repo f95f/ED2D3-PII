@@ -4,6 +4,8 @@
 #include <time.h>
 #include "utilidades.h"
 #include "radixSort.h"
+#include "avlTree.h"
+#include "rnTree.h"
 
 void linha(char formato, int tamanho){
 

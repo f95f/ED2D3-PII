@@ -31,6 +31,10 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="avlTree.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="avlTree.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -42,6 +46,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="radixSort.h" />
+		<Unit filename="rnTree.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="rnTree.h" />
 		<Unit filename="utilidades.c">
 			<Option compilerVar="CC" />
 		</Unit>
