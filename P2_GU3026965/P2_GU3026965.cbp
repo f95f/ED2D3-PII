@@ -38,10 +38,6 @@
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="mergeSort.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="mergeSort.h" />
 		<Unit filename="radixSort.c">
 			<Option compilerVar="CC" />
 		</Unit>
