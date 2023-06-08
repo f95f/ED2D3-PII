@@ -17,11 +17,9 @@ void main(){
     Pessoa *listaOriginal = ler("massaDados.csv");
 
     ordenar(listaOriginal);
-    //free(listaOriginal);
-
     limpar(listaOriginal);
+
     int resposta = -1;
-    int arvoreEscolhida = -1;
     int listaEscolhida = -1;
 
     do{
@@ -49,28 +47,41 @@ void main(){
 
         break;
         case 2: // Usar árvore AVL
+            system("cls");
+            gerarHeader();
+            printf("\n    > Preenchendo...\n\n");
 
             if(listaEscolhida == 1){
 
                 // usar lista ordenada
+                executar("avl", "massaDados.csv");
 
             }
             else if(listaEscolhida == 2){
 
                 // usar lista desordenada
+                executar("avl", "massaDados - Ordenada.csv");
+
             }
 
         break;
         case 3: //Usar árvore RN
 
+            system("cls");
+            gerarHeader();
+            printf("\n    > Preenchendo...\n\n");
+
             if(listaEscolhida == 1){
 
                 // usar lista ordenada
+                executar("rb", "massaDados - .csv");
 
             }
             else if(listaEscolhida == 2){
 
                 // usar lista desordenada
+                executar("rb", "massaDados - Ordenada.csv");
+
             }
 
         break;
@@ -99,7 +110,6 @@ int subMenu(){
         if(op == 1 || op == 2){ break; }
     }
     while(op);
-
     return op;
 }
 

@@ -1,27 +1,28 @@
 # depslib dependency file v1.0
-1684379637 source:c:\users\95fel\onedrive\documentos\if\ed2s3\projeto avaliativo ii - gu3026965\p2_gu3026965\avltree.c
+1686186864 source:c:\users\95fel\onedrive\documentos\if\ed2s3\projeto avaliativo ii - gu3026965\p2_gu3026965\avltree.c
 	<stdio.h>
 	<stdlib.h>
 	"avlTree.h"
+	"utilidades.h"
 
 1684379637 c:\users\95fel\onedrive\documentos\if\ed2s3\projeto avaliativo ii - gu3026965\p2_gu3026965\avltree.h
 
-1684382805 source:c:\users\95fel\onedrive\documentos\if\ed2s3\projeto avaliativo ii - gu3026965\p2_gu3026965\rntree.c
+1686186892 source:c:\users\95fel\onedrive\documentos\if\ed2s3\projeto avaliativo ii - gu3026965\p2_gu3026965\rntree.c
 	<stdio.h>
 	<stdlib.h>
 	"RNTree.h"
 
 1684379637 c:\users\95fel\onedrive\documentos\if\ed2s3\projeto avaliativo ii - gu3026965\p2_gu3026965\rntree.h
 
-1685568989 source:c:\users\95fel\onedrive\documentos\if\ed2s3\projeto avaliativo ii - gu3026965\p2_gu3026965\main.c
+1686191284 source:c:\users\95fel\onedrive\documentos\if\ed2s3\projeto avaliativo ii - gu3026965\p2_gu3026965\main.c
 	<stdio.h>
 	<stdlib.h>
 	<locale.h>
 	"utilidades.h"
 
-1685569332 c:\users\95fel\onedrive\documentos\if\ed2s3\projeto avaliativo ii - gu3026965\p2_gu3026965\utilidades.h
+1686188932 c:\users\95fel\onedrive\documentos\if\ed2s3\projeto avaliativo ii - gu3026965\p2_gu3026965\utilidades.h
 
-1685570126 source:c:\users\95fel\onedrive\documentos\if\ed2s3\projeto avaliativo ii - gu3026965\p2_gu3026965\utilidades.c
+1686191756 source:c:\users\95fel\onedrive\documentos\if\ed2s3\projeto avaliativo ii - gu3026965\p2_gu3026965\utilidades.c
 	<stdio.h>
 	<stdlib.h>
 	<locale.h>

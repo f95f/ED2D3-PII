@@ -33,7 +33,7 @@ Pessoa *ler(char *arquivo){
 
     if(lista == NULL || arquivoOriginal == NULL){ return NULL; }
 
-    Pessoa pessoa;
+    //Pessoa pessoa;
     char *registro = (char *) calloc(sizeof(char), 100);
     int index = 0;
 
@@ -164,47 +164,118 @@ void amostrar(Pessoa *lista, char *descr){
     linha('=', 86);
 }
 
-int executar(int metodo){
+int executar(char *arvore, char *lista){
 
     struct timeval antes, depois;
     double tempo;
-    double tempo_listaOrganizada, tempo_listaOriginal;
+    Pessoa pessoa;
 
-    switch(metodo){
-        case 2:
+    FILE *arquivo = fopen(lista, "rb");
+    if(arquivo == NULL){ return NULL; }
+    char *registro = (char *) calloc(sizeof(char), 100);
 
-            gettimeofday(&antes, NULL);
+    if(!strcmp(arvore, "avl")){
 
+        avlTree *raiz;
+        raiz = criar_avlTree();
 
-                //avl(listaOriginal);
+        gettimeofday(&antes, NULL);
 
-            gettimeofday(&depois, NULL);
-            tempo_listaOriginal = medirIntervalo(antes, depois);
+        while(fgets(registro, 100, arquivo)){
 
-            gettimeofday(&antes, NULL);
+            pessoa.codigo = atoi(strtok(registro, ";"));
 
-            //avl(listaOrdenada);
+            char *nome =  strtok(NULL, ";");
+            pessoa.nome = (char *) calloc(sizeof(char), 50);
+            strcpy(pessoa.nome, nome);
 
-            gettimeofday(&depois, NULL);
+            pessoa.idade = atoi(strtok(NULL, ";"));
 
-        break;
-        case 3:
+            char *empresa =  strtok(NULL, ";");
+            pessoa.empresa = (char *) calloc(sizeof(char), 50);
+            strcpy(pessoa.empresa, empresa);
 
-            gettimeofday(&antes, NULL);
+            char *depto =  strtok(NULL, ";");
+            pessoa.departamento = (char *) calloc(sizeof(char), 50);
+            strcpy(pessoa.departamento, depto);
 
-            //rn(listaOriginal);
+            pessoa.salario = atof(strtok(NULL, ";"));
 
-            gettimeofday(&depois, NULL);
-            tempo_listaOrganizada = medirIntervalo(antes, depois);
+            inserir_avlTree(raiz, pessoa);
 
-            gettimeofday(&antes, NULL);
+        }
 
-            //rn(listaOrdenada);
+        gettimeofday(&depois, NULL);
+        tempo = medirIntervalo(antes, depois);
 
-            gettimeofday(&depois, NULL);
-
-        break;
+        exibirResultados(tempo, lista, arvore, raiz);
     }
+    if(!strcmp(arvore, "rb")){
+
+       //rubro negra
+
+    }
+
+
+    free(registro);
+    fclose(arquivo);
+
 }
 
+void exibirResultados(double tempo_total, char *lista, char *arvore, avlTree *raiz){
 
+    int op = -1;
+    do{
+
+        system("cls");
+        gerarHeader();
+        printf("\n    > Resultados\n\n");
+
+        printf("    - Árvore preenchida com o arquivo %s, pelo método %s.\n", lista, arvore);
+        printf("      Tempo total: %f segundos.\n\n", tempo_total);
+
+        printf("        [ 1 ] Consultar na árvore\n");
+        printf("        [ 0 ] Voltar\n\n");
+        printf("    > Escolha uma opção: ");
+        scanf("%d", &op);
+
+        if(op == 1){ consultar(arvore, raiz); }
+    }
+    while(op);
+
+}
+
+void consultar(char *arvore, avlTree *raiz){
+
+    int op = -1;
+    do{
+
+        system("cls");
+        gerarHeader();
+
+        printf("\n    > Consultar\n\n");
+        printf("    - Informe o código a ser pesquisado, ou insira 0 para voltar: ");
+        scanf("%d", &op);
+
+        if(op){
+            if(!strcmp(arvore, "avl")){
+
+                if(consulta_avlTree(raiz, op)){
+
+                    printf("Person");
+                }
+                else{
+                    printf("\n -- Elemento não encontrado.\n");
+                }
+
+            }
+            if(!strcmp(arvore, "rb")){
+                //consultar rb;
+            }
+
+            system("pause");
+        }
+    }
+    while(op);
+
+}
