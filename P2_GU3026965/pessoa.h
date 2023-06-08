@@ -1,2 +1,0 @@
-
-typedef struct obj Pessoa;

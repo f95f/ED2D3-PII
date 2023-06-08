@@ -26,9 +26,7 @@ void posOrdem_avlTree(avlTree *raiz);
 //consulta
 int consulta_avlTree(avlTree *raiz, int valor);
 
-// Busca - Retorna o conteúdo da árvore
+// Busca - Retorna o conteúdo do nó
 int busca_avlTree(avlTree *raiz, int codigo);
-
-int insere_avlTree(avlTree *raiz, int valor);
 
 int remove_avlTree(avlTree *raiz, int valor);

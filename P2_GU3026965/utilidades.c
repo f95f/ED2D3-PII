@@ -21,7 +21,7 @@ void gerarHeader(){
 
         system("cls");
         linha('#', 41);
-        printf(" # Desempenho de Árvores de Dados #");
+        printf(" #### Desempenho de Árvores de Dados ####");
         linha('#', 41);
 
 }
@@ -174,7 +174,7 @@ int executar(char *arvore, char *lista){
     if(arquivo == NULL){ return NULL; }
     char *registro = (char *) calloc(sizeof(char), 100);
 
-    if(!strcmp(arvore, "avl")){
+    if(!strcmp(arvore, "avl")){ //---> Usar árvore AVL
 
         avlTree *raiz;
         raiz = criar_avlTree();
@@ -208,23 +208,57 @@ int executar(char *arvore, char *lista){
         gettimeofday(&depois, NULL);
         tempo = medirIntervalo(antes, depois);
 
-        exibirResultados(tempo, lista, arvore, raiz);
+        exibirResultados(tempo, lista, arvore, raiz, NULL);
+        liberar_avlTree(raiz);
     }
-    if(!strcmp(arvore, "rb")){
+    if(!strcmp(arvore, "rb")){ //---> Usar árvore Rubro-Negra
 
-       //rubro negra
+        arvoreLLRB *raiz;
+        raiz = criar_arvoreLLRB();
+
+        gettimeofday(&antes, NULL);
+
+        while(fgets(registro, 100, arquivo)){
+
+            pessoa.codigo = atoi(strtok(registro, ";"));
+
+            char *nome =  strtok(NULL, ";");
+            pessoa.nome = (char *) calloc(sizeof(char), 50);
+            strcpy(pessoa.nome, nome);
+
+            pessoa.idade = atoi(strtok(NULL, ";"));
+
+            char *empresa =  strtok(NULL, ";");
+            pessoa.empresa = (char *) calloc(sizeof(char), 50);
+            strcpy(pessoa.empresa, empresa);
+
+            char *depto =  strtok(NULL, ";");
+            pessoa.departamento = (char *) calloc(sizeof(char), 50);
+            strcpy(pessoa.departamento, depto);
+
+            pessoa.salario = atof(strtok(NULL, ";"));
+
+            inserir_arvoreLLRB(raiz, pessoa);
+
+        }
+
+        gettimeofday(&depois, NULL);
+        tempo = medirIntervalo(antes, depois);
+
+        exibirResultados(tempo, lista, arvore, NULL, raiz);
+        liberar_arvoreLLRB(raiz);
 
     }
-
 
     free(registro);
     fclose(arquivo);
 
 }
 
-void exibirResultados(double tempo_total, char *lista, char *arvore, avlTree *raiz){
+void exibirResultados(double tempo_total, char *lista, char *arvore, avlTree *raizAVL, arvoreLLRB *raizRN){
 
     int op = -1;
+
     do{
 
         system("cls");
@@ -239,13 +273,17 @@ void exibirResultados(double tempo_total, char *lista, char *arvore, avlTree *ra
         printf("    > Escolha uma opção: ");
         scanf("%d", &op);
 
-        if(op == 1){ consultar(arvore, raiz); }
+        if(op == 1){
+
+            if(raizAVL != NULL){ consultarAVL(arvore, raizAVL); }
+            else{ consultarRN(arvore, raizRN); }
+
+        }
     }
     while(op);
-
 }
 
-void consultar(char *arvore, avlTree *raiz){
+void consultarAVL(char *arvore, avlTree *raiz){
 
     int resposta;
     int op = -1;
@@ -259,17 +297,37 @@ void consultar(char *arvore, avlTree *raiz){
         scanf("%d", &op);
 
         if(op){
-            if(!strcmp(arvore, "avl")){
 
-                resposta = busca_avlTree(raiz, op);
+            resposta = busca_avlTree(raiz, op);
 
-                if(resposta == 0){
-                    printf("\n -- Elemento não encontrado.\n");
-                }
-
+            if(resposta == 0){
+                printf("\n -- Elemento não encontrado.\n");
             }
-            if(!strcmp(arvore, "rb")){
-                //consultar rb;
+
+            system("pause");
+        }
+    }
+    while(op);
+
+}
+void consultarRN(char *arvore, arvoreLLRB *raiz){
+
+    int resposta;
+    int op = -1;
+    do{
+
+        system("cls");
+        gerarHeader();
+
+        printf("\n    > Consultar\n\n");
+        printf("    - Informe o código a ser pesquisado, ou insira 0 para voltar: ");
+        scanf("%d", &op);
+
+        if(op){
+            resposta = buscar_arvoreLLRB(raiz, op);
+
+            if(resposta == 0){
+                printf("\n -- Elemento não encontrado.\n");
             }
 
             system("pause");

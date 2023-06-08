@@ -74,7 +74,7 @@ void main(){
             if(listaEscolhida == 1){
 
                 // usar lista ordenada
-                executar("rb", "massaDados - .csv");
+                executar("rb", "massaDados.csv");
 
             }
             else if(listaEscolhida == 2){
@@ -132,8 +132,6 @@ void mostrarListas(){
     getchar();
     getchar();
 }
-
-
 
 
 

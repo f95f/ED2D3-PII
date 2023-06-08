@@ -1,3 +1,4 @@
+
 typedef struct NO *arvoreLLRB;
 
 arvoreLLRB *criar_arvoreLLRB();
@@ -24,6 +25,9 @@ void posOrdem_arvoreLLRB(arvoreLLRB *raiz);
 
 //consulta
 int consulta_arvoreLLRB(arvoreLLRB *raiz, int valor);
+
+// Busca - Retorna o conteúdo do nó
+int buscar_arvoreLLRB(arvoreLLRB *raiz, int codigo);
 
 int insere_arvoreLLRB(arvoreLLRB  *raiz, int valor);
 

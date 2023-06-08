@@ -1,29 +1,30 @@
 # depslib dependency file v1.0
-1686247831 source:c:\users\95fel\onedrive\documentos\if\ed2s3\projeto avaliativo ii - gu3026965\p2_gu3026965\avltree.c
+1686251051 source:c:\users\95fel\onedrive\documentos\if\ed2s3\projeto avaliativo ii - gu3026965\p2_gu3026965\avltree.c
 	<stdio.h>
 	<stdlib.h>
 	<locale.h>
 	"avlTree.h"
 	"utilidades.h"
 
-1686247444 c:\users\95fel\onedrive\documentos\if\ed2s3\projeto avaliativo ii - gu3026965\p2_gu3026965\avltree.h
+1686252130 c:\users\95fel\onedrive\documentos\if\ed2s3\projeto avaliativo ii - gu3026965\p2_gu3026965\avltree.h
 
-1686186892 source:c:\users\95fel\onedrive\documentos\if\ed2s3\projeto avaliativo ii - gu3026965\p2_gu3026965\rntree.c
+1686253449 source:c:\users\95fel\onedrive\documentos\if\ed2s3\projeto avaliativo ii - gu3026965\p2_gu3026965\rntree.c
 	<stdio.h>
 	<stdlib.h>
 	"RNTree.h"
+	"utilidades.h"
 
-1684379637 c:\users\95fel\onedrive\documentos\if\ed2s3\projeto avaliativo ii - gu3026965\p2_gu3026965\rntree.h
+1686252209 c:\users\95fel\onedrive\documentos\if\ed2s3\projeto avaliativo ii - gu3026965\p2_gu3026965\rntree.h
 
-1686246704 source:c:\users\95fel\onedrive\documentos\if\ed2s3\projeto avaliativo ii - gu3026965\p2_gu3026965\main.c
+1686254200 source:c:\users\95fel\onedrive\documentos\if\ed2s3\projeto avaliativo ii - gu3026965\p2_gu3026965\main.c
 	<stdio.h>
 	<stdlib.h>
 	<locale.h>
 	"utilidades.h"
 
-1686246704 c:\users\95fel\onedrive\documentos\if\ed2s3\projeto avaliativo ii - gu3026965\p2_gu3026965\utilidades.h
+1686251156 c:\users\95fel\onedrive\documentos\if\ed2s3\projeto avaliativo ii - gu3026965\p2_gu3026965\utilidades.h
 
-1686247715 source:c:\users\95fel\onedrive\documentos\if\ed2s3\projeto avaliativo ii - gu3026965\p2_gu3026965\utilidades.c
+1686254906 source:c:\users\95fel\onedrive\documentos\if\ed2s3\projeto avaliativo ii - gu3026965\p2_gu3026965\utilidades.c
 	<stdio.h>
 	<stdlib.h>
 	<locale.h>
