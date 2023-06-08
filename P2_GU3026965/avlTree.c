@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <locale.h>
 #include "avlTree.h"
 #include "utilidades.h"
 
@@ -198,6 +199,39 @@ int consulta_avlTree(avlTree *raiz, int valor){
     return 0;
 }
 
+// Busca ----------------------------------------------------------------
+int busca_avlTree(avlTree *raiz, int codigo){
+
+    setlocale(LC_ALL, "pt-br");
+
+    if(raiz == NULL){ return 0;}
+    struct NO *atual = *raiz;
+
+    while(atual != NULL){
+
+        if(codigo == atual -> pessoa.codigo){
+
+            printf("\n    > Registro encontrado!\n\n");
+            printf("          Código: #%d\n", atual -> pessoa.codigo);
+            printf("            Nome: %s\n", atual -> pessoa.nome);
+            printf("           Idade: %d anos\n", atual -> pessoa.idade);
+            printf("         Empresa: %s\n", atual -> pessoa.empresa);
+            printf("    Departamento: %s\n", atual -> pessoa.departamento);
+            printf("         Salário: $%.2f\n\n", atual -> pessoa.salario);
+
+            return 1;
+        }
+
+        if(codigo > atual -> pessoa.codigo){
+            atual = atual -> dir;
+        }
+        else{
+            atual = atual -> esq;
+        }
+    }
+
+    return 0;
+}
 // - Rotações
 
 void rotacaoLL(avlTree *raiz){

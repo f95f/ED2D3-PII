@@ -1,3 +1,4 @@
+
 typedef struct NO *avlTree;
 
 avlTree *criar_avlTree();
@@ -24,6 +25,9 @@ void posOrdem_avlTree(avlTree *raiz);
 
 //consulta
 int consulta_avlTree(avlTree *raiz, int valor);
+
+// Busca - Retorna o conteúdo da árvore
+int busca_avlTree(avlTree *raiz, int codigo);
 
 int insere_avlTree(avlTree *raiz, int valor);
 

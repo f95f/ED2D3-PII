@@ -28,7 +28,7 @@ void gerarHeader(){
 
 Pessoa *ler(char *arquivo){
 
-    Pessoa *lista = (Pessoa*) calloc(sizeof(Pessoa), TAMANHO);
+    Pessoa *lista = (Pessoa*) calloc(100, TAMANHO);
     FILE *arquivoOriginal = fopen(arquivo, "rb");
 
     if(lista == NULL || arquivoOriginal == NULL){ return NULL; }
@@ -247,6 +247,7 @@ void exibirResultados(double tempo_total, char *lista, char *arvore, avlTree *ra
 
 void consultar(char *arvore, avlTree *raiz){
 
+    int resposta;
     int op = -1;
     do{
 
@@ -260,11 +261,9 @@ void consultar(char *arvore, avlTree *raiz){
         if(op){
             if(!strcmp(arvore, "avl")){
 
-                if(consulta_avlTree(raiz, op)){
+                resposta = busca_avlTree(raiz, op);
 
-                    printf("Person");
-                }
-                else{
+                if(resposta == 0){
                     printf("\n -- Elemento não encontrado.\n");
                 }
 

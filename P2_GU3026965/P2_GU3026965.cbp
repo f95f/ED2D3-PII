@@ -38,6 +38,10 @@
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="pessoa.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="pessoa.h" />
 		<Unit filename="radixSort.c">
 			<Option compilerVar="CC" />
 		</Unit>

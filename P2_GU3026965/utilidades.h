@@ -4,11 +4,6 @@
     formatações, geração de menus, geração de vetores, verificações etc.,
     bem como a função principal de executar as medições e exibir os resultados.
 */
-
-// Tamanho comum à todas as listas.
-#define TAMANHO 14999
-
-// Estrutura utilizada para armazenar cada instância.
 typedef struct obj{
     int codigo;
     char *nome;
@@ -16,8 +11,10 @@ typedef struct obj{
     char *empresa;
     char *departamento;
     float salario;
-
 } Pessoa;
+
+// Tamanho comum à todas as listas.
+#define TAMANHO 14999
 
 // Cria uma linha com o caractere e desejado.
 void linha(char formato, int tamanho);
