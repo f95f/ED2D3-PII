@@ -11,22 +11,12 @@ int altura_avlTree(avlTree *raiz);
 
 int totalNO_avlTree(avlTree *raiz);
 
-// Percorrendo a árvore
-    // - Pré-ordem
-void preOrdem_avlTree(avlTree *raiz);
-
-// Percorrendo a árvore
-    // - Em ordem
-void emOrdem_avlTree(avlTree *raiz);
-
-// Percorrendo a árvore
-    // - Pós-ordem
-void posOrdem_avlTree(avlTree *raiz);
-
-//consulta
+// consulta - retorna 1 caso o código informado em 'valor' for encontrado
+// na árvore, e retorna 0 caso não seja encontrado.
 int consulta_avlTree(avlTree *raiz, int valor);
 
-// Busca - Retorna o conteúdo do nó
+// Busca - Retorna o conteúdo do nó caso o valor informado na variável 'código'
+// for encontrado, e retorna 0 caso não seja encontrado.
 int busca_avlTree(avlTree *raiz, int codigo);
 
 int remove_avlTree(avlTree *raiz, int valor);

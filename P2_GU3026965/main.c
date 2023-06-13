@@ -53,13 +53,13 @@ void main(){
 
             if(listaEscolhida == 1){
 
-                // usar lista ordenada
+                // usar lista não ordenada
                 executar("avl", "massaDados.csv");
 
             }
             else if(listaEscolhida == 2){
 
-                // usar lista desordenada
+                // usar lista ordenada
                 executar("avl", "massaDados - Ordenada.csv");
 
             }
@@ -73,7 +73,7 @@ void main(){
 
             if(listaEscolhida == 1){
 
-                // usar lista ordenada
+                // usar lista não ordenada
                 executar("rb", "massaDados.csv");
 
             }
@@ -100,8 +100,8 @@ int subMenu(){
         gerarHeader();
         printf("\n    > Modo de ordenação\n\n");
 
-        printf("        [ 1 ] Usar lista ordenada\n");
-        printf("        [ 2 ] Usar lista original\n");
+        printf("        [ 1 ] Usar lista original\n");
+        printf("        [ 2 ] Usar lista ordenada\n");
         printf("        [ 0 ] Voltar\n\n");
 
         printf("    > Escolha uma opção: ");
@@ -122,8 +122,8 @@ void mostrarListas(){
     Pessoa *listaOriginal = ler("massaDados.csv");
     Pessoa *listaOrdenada = ler("massaDados - Ordenada.csv");
 
-    amostrar(listaOriginal, "Primeiros registros no arquivo original");
-    amostrar(listaOrdenada, "Primeiros registros no arquivo ordenado");
+    amostrar(listaOriginal, "Primeiros registros no arquivo original (massaDados.csv)");
+    amostrar(listaOrdenada, "Primeiros registros no arquivo ordenado (massaDados - Ordenada.csv)");
 
     limpar(listaOrdenada);
     limpar(listaOriginal);

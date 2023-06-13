@@ -1,4 +1,3 @@
-
 /*
     Esta biblioteca contém funções para atividades auxiliares, tais como
     formatações, geração de menus, geração de vetores, verificações etc.,
@@ -13,7 +12,7 @@ typedef struct obj{
     float salario;
 } Pessoa;
 
-// Tamanho comum à todas as listas.
+// Quantidade de registros na massa de dados, tamanho comum à todas as listas.
 #define TAMANHO 14999
 
 // Cria uma linha com o caractere e desejado.
@@ -26,9 +25,8 @@ void gerarHeader();
 // carregando os dados em uma lista de estruturas do tipo Pessoa.
 Pessoa *ler(char *arqauivo);
 
-// Recebe por parâmetro uma lista de estruturas do tipo Pessoa
-// A organiza em ordem crescente e a grava em um arquivo cujo nome
-// é especificado por parâmetro.
+// Recebe por parâmetro uma lista de estruturas do tipo Pessoa,
+// a organiza em ordem crescente e a grava em um arquivo.
 void ordenar(Pessoa *lista);
 
 // Libera a memória alocada para campos com cadeias de caracteres
@@ -44,7 +42,7 @@ int gravar(Pessoa *lista, char *arquivo);
 // de ordenada. Recebe para fins de identificação uma descrição por parâmetro e a exibe na tela.
 void amostrar(Pessoa *lista, char *descr);
 
-// Monta a lista de números aleatórios de acordo com a quantidade informada,
-// executa a ordenação de acordo com o algoritmo solicitado e executa a medição de tempo.
+// Preenche a árvore selecionada com dados do arquivo informado
+// e executa a medição de tempo.
 // Ao final, exibe os resultados das medições.
 int executar(char *arvore, char *lista);

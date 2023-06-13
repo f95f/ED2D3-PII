@@ -21,7 +21,7 @@ void gerarHeader(){
 
         system("cls");
         linha('#', 41);
-        printf(" #### Desempenho de Árvores de Dados ####");
+        printf(" #### Desempenho de Árvores de Dados #####");
         linha('#', 41);
 
 }
@@ -33,7 +33,6 @@ Pessoa *ler(char *arquivo){
 
     if(lista == NULL || arquivoOriginal == NULL){ return NULL; }
 
-    //Pessoa pessoa;
     char *registro = (char *) calloc(sizeof(char), 100);
     int index = 0;
 
@@ -130,6 +129,7 @@ int gravar(Pessoa *lista, char *arquivo){
         if(resposta <= 0){ printf("\n\n Erro \n\n"); system("pause");}
 
     }
+    fclose(arquivoOrdenado);
     return 0;
 }
 
@@ -301,7 +301,7 @@ void consultarAVL(char *arvore, avlTree *raiz){
             resposta = busca_avlTree(raiz, op);
 
             if(resposta == 0){
-                printf("\n -- Elemento não encontrado.\n");
+                printf("\n    [ ! ] Elemento não encontrado.\n");
             }
 
             system("pause");
@@ -327,7 +327,7 @@ void consultarRN(char *arvore, arvoreLLRB *raiz){
             resposta = buscar_arvoreLLRB(raiz, op);
 
             if(resposta == 0){
-                printf("\n -- Elemento não encontrado.\n");
+                printf("\n    [ ! ] Elemento não encontrado.\n");
             }
 
             system("pause");

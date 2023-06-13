@@ -130,51 +130,6 @@ int totalNO_avlTree(avlTree *raiz){
 
 }
 
-// Percorrendo a árvore
-// - Pré-ordem
-
-void preOrdem_avlTree(avlTree *raiz){
-
-    if(raiz == NULL){ return; }
-
-    if(*raiz != NULL){
-
-        printf(" -- %d\n", ((*raiz) -> pessoa.codigo));
-        preOrdem_avlTree(&((*raiz) -> esq));
-        preOrdem_avlTree(&((*raiz) -> dir));
-
-    }
-
-}
-
-// Em ordem
-void emOrdem_avlTree(avlTree *raiz){
-
-    if(raiz == NULL){ return; }
-
-    if(*raiz != NULL){
-        emOrdem_avlTree(&((*raiz) -> esq));
-        printf(" -- %d\n", (*raiz) -> pessoa.codigo);
-        emOrdem_avlTree(&((*raiz) -> dir));
-    }
-
-}
-
-// Pós-ordem
-void posOrdem_avlTree(avlTree *raiz){
-
-    if(raiz == NULL){ return; }
-
-    if(*raiz != NULL){
-
-        posOrdem_avlTree(&((*raiz) -> esq));
-        posOrdem_avlTree(&((*raiz) -> dir));
-        printf(" -- %d\n", (*raiz) -> pessoa.codigo);
-
-    }
-
-}
-
 //consultando ----------------------------------------------------------------
 int consulta_avlTree(avlTree *raiz, int valor){
 
@@ -201,8 +156,6 @@ int consulta_avlTree(avlTree *raiz, int valor){
 
 // Busca ----------------------------------------------------------------
 int busca_avlTree(avlTree *raiz, int codigo){
-
-    setlocale(LC_ALL, "pt-br");
 
     if(raiz == NULL){ return 0;}
     struct NO *atual = *raiz;

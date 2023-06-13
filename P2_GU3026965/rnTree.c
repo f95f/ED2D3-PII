@@ -109,51 +109,6 @@ int totalNO_arvoreLLRB(arvoreLLRB *raiz){
 
 }
 
-// Percorrendo a árvore
-// - Pré-ordem
-
-void preOrdem_arvoreLLRB(arvoreLLRB *raiz){
-
-    if(raiz == NULL){ return; }
-
-    if(*raiz != NULL){
-
-        printf(" -- %d\n", ((*raiz) -> pessoa.codigo));
-        preOrdem_arvoreLLRB(&((*raiz) -> esq));
-        preOrdem_arvoreLLRB(&((*raiz) -> dir));
-
-    }
-
-}
-
-// Em ordem
-void emOrdem_arvoreLLRB(arvoreLLRB *raiz){
-
-    if(raiz == NULL){ return; }
-
-    if(*raiz != NULL){
-        emOrdem_arvoreLLRB(&((*raiz) -> esq));
-        printf(" -- %d\n", (*raiz) -> pessoa.codigo);
-        emOrdem_arvoreLLRB(&((*raiz) -> dir));
-    }
-
-}
-
-// Pós-ordem
-void posOrdem_arvoreLLRB(arvoreLLRB *raiz){
-
-    if(raiz == NULL){ return; }
-
-    if(*raiz != NULL){
-
-        posOrdem_arvoreLLRB(&((*raiz) -> esq));
-        posOrdem_arvoreLLRB(&((*raiz) -> dir));
-        printf(" -- %d\n", (*raiz) -> pessoa.codigo);
-
-    }
-
-}
-
 //consultando ----------------------------------------------------------------
 int consulta_arvoreLLRB(arvoreLLRB *raiz, int valor){
 
@@ -429,20 +384,4 @@ int remove_arvoreLLRB(arvoreLLRB *raiz, int valor){
     }
 
 }
-/*
 
-struct NO *procurarMenor(struct NO *atual){
-
-    struct NO *no1 = atual;
-    struct NO *no2 = atual -> esq;
-
-    while(no2 != NULL){
-
-        no1 = no2;
-        no2 = no2 -> esq;
-
-    }
-
-    return no1;
-}
-*/
